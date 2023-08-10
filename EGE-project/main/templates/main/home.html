@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if files %}
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
+        <h3>Распаршенный файл:</h3>
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
+        <table class="table table-bordered" border="1" align="center" valign="center">
+            <thead class="thead-light">
+                <th scope="col">№</th>
+                <th scope="col">Город</th>
+                <th scope="col">Регион</th>
+                <th scope="col">Федеральный округ</th>
+                <th scope="col">Население</th>
+                <th scope="col">Основание или первое упоминание</th>
+                <th scope="col">Статус города</th>
+                <th scope="col">Прежние названия</th>
+            </thead>
+            <tbody>
+            {% for k in files  %}
+            <tr>
+                <th scope="col" align="center" valign="center">{{k.num}}</th>
+                <td>{{k.city}}</td>
+                <td>{{k.reg}}</td>
+                <td>{{k.fed_o}}</td>
+                <td>{{k.hum}}</td>
+                <td>{{k.his}}</td>
+                <td>{{k.status}}</td>
+                {% if k.his_name == "nan" %}
+                    <td>  </td>
+                {% else %}
+                    <td>{{k.his_name}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <form>
+            <div class="form-group">
+                <label></label>
+            </div>
+        </form>
+    {% else %}
+        <p>Файла нет!</p>
+    {% endif %}
+{% endblock %}
+

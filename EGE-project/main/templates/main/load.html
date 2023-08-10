@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Добавление файлов
+{% endblock %}
+
+{% block content %}
+
+    <main class="form-signin w-50 h-100 mx-auto">
+        <h1>Добавить файл:</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Название:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label>Добавление файла:</label>
+            </div>
+            <div class="form-group">
+                {{ form.file }}
+            </div>
+            <div class="form-group">
+                <label></label>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Добавить</button>
+        </form>
+    </main>
+{% endblock %}
